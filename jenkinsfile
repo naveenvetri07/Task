@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Prepare Environment') {
+            steps {
+                echo 'Setting up environment...'
+                // Ensure scripts are executable
+                sh 'chmod +x one.sh two.sh'
+            }
+        }
+
+        stage('Execute one.sh') {
+            steps {
+                echo 'Executing one.sh...'
+                // Execute one.sh
+                sh './one.sh'
+            }
+        }
+
+        stage('Execute two.sh') {
+            steps {
+                echo 'Executing two.sh...'
+                // Execute two.sh
+                sh './two.sh'
+            }
+        }
+    }
